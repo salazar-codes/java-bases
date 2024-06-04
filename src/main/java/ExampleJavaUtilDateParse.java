@@ -1,5 +1,6 @@
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -16,6 +17,37 @@ public class ExampleJavaUtilDateParse {
             Date fecha = format.parse(scanner.next());
             System.out.println("fecha = " + fecha);
             System.out.println("fecha = " + format.format(fecha));
+
+            Date fecha2 = new Date();
+            System.out.println("fecha actual = " + format.format(fecha2));
+
+            // Comparar 2 fechas
+            if(fecha.after(fecha2)){
+                System.out.println("Fecha del usuario es después que fecha2");
+            }else if(fecha.before(fecha2)){
+                System.out.println("Fecha del usuario es anterior que fecha2");
+            }else if (fecha.equals(fecha2)){
+                System.out.println("Fecha del usuario es igual que fecha2");
+            }
+
+            //Otras formas de comprar fechas
+            if(fecha.compareTo(fecha2)>0){
+                System.out.println("Fecha1 es después que fecha2");
+            } else if (fecha.compareTo(fecha2)<0) {
+                System.out.println("Fecha1 es antes que fecha2");
+            } else if (fecha.compareTo(fecha2) == 0) {
+                System.out.println("Fecha1 es igual que fecha2");
+            }
+
+            // Todas estas mismas comparaciones son viables de utilizarla con el Calendario
+            Calendar calendar = Calendar.getInstance();
+            Date fechaSistema = calendar.getTime();
+            System.out.println("Fecha sin formato:" + fechaSistema);
+
+            if(fecha.after(fechaSistema)){
+                System.out.println("Calendar: Fecha del usuario es después que fecha2");
+            }
+
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
