@@ -49,7 +49,9 @@ public class ExampleJavaUtilDateParse {
             }
 
         } catch (ParseException e) {
-            throw new RuntimeException(e);
+            System.err.println("La fecha tiene un formato incorrecto: " + e.getMessage());
+            System.exit(1); // Para terminar la ejecución
+            // main(args); // volver a invocar al main
         }
     }
 }

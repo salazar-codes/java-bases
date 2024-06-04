@@ -8,7 +8,7 @@ public class ExampleAssingSystemProperties {
         // Agregamos el archivo config.properties
         // Primero leeremos el contenido del archivo en bytes para cargarlo a las properties de sistema
         try {
-            FileInputStream archivo = new FileInputStream("src/main/java/config.properties");
+            FileInputStream archivo = new FileInputStream("src/main/java/confi2g.properties");
 
             // Cargar a properties del sistema
             Properties prop = new Properties(System.getProperties());
@@ -24,7 +24,8 @@ public class ExampleAssingSystemProperties {
             System.getProperties().list(System.out); // listando todas las properties
 
         } catch (FileNotFoundException e) {
-            System.out.println("No existe el archivo =" + e);
+            System.err.println("No existe el archivo =" + e);
+            System.exit(1);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
